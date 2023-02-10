@@ -19,6 +19,7 @@
 		4BA120EB25379618001561D2 /* PassLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA120EA25379618001561D2 /* PassLiteUITests.swift */; };
 		4BA120FD25379629001561D2 /* PassphraseGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = 4BA120FC25379629001561D2 /* PassphraseGenerator */; };
 		4BA543AE254A1CEF0083BCA9 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4BA543AD254A1CEF0083BCA9 /* KeychainSwift */; };
+		6007B3BA26F4F0D700DB6567 /* NSRunningApplication+activeBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6007B3B926F4F0D700DB6567 /* NSRunningApplication+activeBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		4BA120E625379618001561D2 /* PassLiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassLiteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA120EA25379618001561D2 /* PassLiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassLiteUITests.swift; sourceTree = "<group>"; };
 		4BA120EC25379618001561D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6007B3B926F4F0D700DB6567 /* NSRunningApplication+activeBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRunningApplication+activeBrowser.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +110,11 @@
 		4BA120C525379617001561D2 /* PassLite */ = {
 			isa = PBXGroup;
 			children = (
-				4B7EFB8D253CC4850028CBCA /* SecuredEntity+CoreDataProperties.swift */,
 				4BA120C625379617001561D2 /* AppDelegate.swift */,
 				4BA120C825379617001561D2 /* ContentView.swift */,
 				4B7EFB84253999360028CBCA /* AddNewItemView.swift */,
+				4B7EFB8D253CC4850028CBCA /* SecuredEntity+CoreDataProperties.swift */,
+				6007B3B926F4F0D700DB6567 /* NSRunningApplication+activeBrowser.swift */,
 				4BA120CD25379618001561D2 /* Assets.xcassets */,
 				4BA120D225379618001561D2 /* Main.storyboard */,
 				4BA120D525379618001561D2 /* Info.plist */,
@@ -288,6 +291,7 @@
 			files = (
 				4B7EFB85253999360028CBCA /* AddNewItemView.swift in Sources */,
 				4BA120C925379617001561D2 /* ContentView.swift in Sources */,
+				6007B3BA26F4F0D700DB6567 /* NSRunningApplication+activeBrowser.swift in Sources */,
 				4B7EFB8F253CC4850028CBCA /* SecuredEntity+CoreDataProperties.swift in Sources */,
 				4BA120C725379617001561D2 /* AppDelegate.swift in Sources */,
 				4BA120CC25379617001561D2 /* PassLite.xcdatamodeld in Sources */,
