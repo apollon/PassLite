@@ -39,7 +39,7 @@ struct ContentView: View {
                 })
             }
             ListView(selectedItem: $selectedItem)
-        }.frame(width: 350, height: 300)
+        }//.frame(width: 350, height: 300)
     }
     
     func shouldBeEditViewVisible(item: SecuredEntity?) -> Bool {

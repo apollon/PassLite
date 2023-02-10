@@ -11,23 +11,52 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var window: NSWindow!
+    var popover: NSPopover!
+    var statusBarItem: NSStatusItem!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.setActivationPolicy(.prohibited)
+        
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
+        
+        // Create the popover
+        let popover = NSPopover()
+//        popover.contentSize = NSSize(width: 400, height: 500)
+//        popover.behavior = .semitransient
+        popover.behavior = .applicationDefined
+        popover.contentViewController = NSHostingController(rootView: contentView)
+        self.popover = popover
+        
+        createStatusBar()
+    }
+    
+    private func createStatusBar() {
+        let statusBar = NSStatusBar.system
+        statusBarItem = statusBar.statusItem(
+            withLength: NSStatusItem.squareLength)
 
-        // Create the window and set the content view.
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        statusBarItem.button?.title = "🔑"
+        if let button = statusBarItem.button {
+            button.action = #selector(onStatusBarButtonPressed)
+            button.sendAction(on: .leftMouseDown)
+        }
+    }
+    
+    @objc private func onStatusBarButtonPressed(sender: AnyObject?) {
+        guard let statusBarButton = statusBarItem.button else {
+            return
+        }
+        
+        if !popover.isShown {
+            self.popover.show(relativeTo: statusBarButton.bounds, of: statusBarButton, preferredEdge: NSRectEdge.minY)
+        } else {
+            popover.close()
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
